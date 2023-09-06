@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TetrisGame</title>
+    <style>
+      /* 背景を黒に設定 */
+      body, html {
+        height: 100%;
+        margin: 0;
+        background-color: black; 
+      }
+
+      /* その他のスタイル */
+      .header-container {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      #container {
+        position: relative;
+        margin: auto;
+        width: 700px;
+      }
+
+      #next-canvas{
+        position: absolute; 
+        top: 0;
+        left:400px;
+      }
+
+      #img-howto {
+        position: absolute;
+        bottom: 200px;
+        left: 360px;
+      }
+
+      #start-btn {
+        position: absolute;
+        left: 400px;
+        bottom: 0;
+        width: 180px;
+        text-align: center;
+        font-size: 16px;
+        color: #FFF;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        background-image: linear-gradient(to top, #0033ff 0%, #f200ff 100%);
+        transition: .5s;
+        background-size: 200%;
+      }
+
+      #start-btn:hover {
+        background-position: right center;
+      }
+
+      h1.animated-text {
+        font-size: 48px;
+        animation: rotateText 5s infinite linear, changeColor 3s infinite linear;
+      }
+
+      @keyframes rotateText {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes changeColor {
+        0% {
+          color: red;
+        }
+        25% {
+          color: blue;
+        }
+        50% {
+          color: green;
+        }
+        75% {
+          color: yellow;
+        }
+        100% {
+          color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- BGM用のaudioタグを追加 -->
+    <audio id="bgm" loop>
+      <source src="https://chakushinon123.com/wp-content/uploads/2022/02/Tetris-Theme-Tetris-Soundtrack.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="header-container">
+      <h1 class="animated-text">TETRIS</h1>
+    </div>
+    <div id="container">
+      <canvas id="main-canvas"></canvas>
+      <canvas id="next-canvas"></canvas>
+      <img id="img-howto" src="images/t.png">
+      <button id="start-btn">start!</button>
+    </div>
+    <script src="tetris.js"></script>
+    <script>
+      // ページが読み込まれた後にBGMを再生するように設定
+      document.addEventListener('DOMContentLoaded', function() {
+        const bgm = document.getElementById('bgm');
+        const startBtn = document.getElementById('start-btn');
+        
+        startBtn.addEventListener('click', function() {
+          bgm.play();
+        });
+      });
+    </script>
+  </body>
+</html>
+
