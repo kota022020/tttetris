@@ -1,0 +1,65 @@
+@keyframes moveText {
+    0% { right: 20px; }
+    50% { right: 40px; }
+    100% { right: 20px; }
+}
+#tetris-title {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 30px;
+    font-weight: bold;
+    animation: moveText 5s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 90%;  /* この値は適宜調整してください。 */
+    }
+}
+#tetris-text {
+    animation: moveRight 5s linear infinite;  /* この5sはアニメーションの持続時間を示しており、必要に応じて調整できます。 */
+}
+#score {
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#score {
+    position: absolute;
+    top: 10px;
+    left: 400px;
+    font-size: 20px;
+    color: #FFF;
+  }
+  #score {
+    position: absolute;
+    left: 400px;
+    bottom: 50px;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .center-left {
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;  /* 背景色を黒に設定 */
+  }
+  
